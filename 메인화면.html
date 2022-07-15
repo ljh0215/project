@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="data.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url('예뻐보임.jpg');
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            opacity: 0.87;
+        }
+        #flex{
+            position: absolute;
+            display: none;
+            clear: both;
+            top: 0;
+            left: 0;
+        }
+        .menuvar{
+            width: 300px;
+            height: 500px;
+            background-color: white;
+        }
+        .title{
+            background-color: red;
+            width: 300px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            position: absolute;
+        }
+        .choose{
+            text-align: center;
+        }
+        .choose ul li{
+            list-style: none;
+            line-height: 2;
+        }
+        .ontitle{
+            background-color: blue;
+            width: 300px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            float: left;
+            color: white;
+        }
+        #illustration{
+            position: absolute;
+            top: 100px;
+            left: 10px;
+            width: 900px;
+            height: 850px;
+            background-size: cover;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="illustration">
+
+    </div>
+    <div id = "alltitle">
+        <div class="ontitle">전사</div>
+        <div class="ontitle">마법사</div>
+        <div class="ontitle">궁수</div>
+        <div class="ontitle">도적</div>
+        <div class="ontitle">해적</div>
+    </div>
+    
+    <div id="flex">
+        <div class="menuvar">
+            <div class="title">전사
+                <div class="choose">
+                    <ul>
+                        <li mytype="hero">히어로</li>
+                        <li mytype="plla">팔라딘</li>
+                        <li mytype="dark">다크나이트</li>
+                        <li mytype="soul">소울마스터</li>
+                        <li mytype="hail">미하일</li>
+                        <li mytype="blas">블래스터</li>
+                        <li mytype="demons">데몬 슬레이어</li>
+                        <li mytype="demona">데몬 어벤져</li>
+                        <li mytype="aran">아란</li>
+                        <li mytype="kai">카이저</li>
+                        <li mytype="adel">아델</li>
+                        <li mytype="zero">제로</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menuvar">
+            <div class="title">마법사
+                <div class="choose">
+                    <ul>
+                        <li mytype="frie">아크메이지 불,독</li>
+                        <li mytype="sun">아크메이지 썬,콜</li>
+                        <li mytype="syop">비숍</li>
+                        <li mytype="preame">플레임 위자드</li>
+                        <li mytype="battle">배틀메이지</li>
+                        <li mytype="eban">에반</li>
+                        <li mytype="lumi">루미너스</li>
+                        <li mytype="illi">일리움</li>
+                        <li mytype="lala">라라</li>
+                        <li mytype="kine">키네시스</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menuvar">
+            <div class="title">궁수
+                <div class="choose">
+                    <ul>
+                        <li mytype="bow">보우 마스터</li>
+                        <li mytype="god">신궁</li>
+                        <li mytype="path">패스파인더</li>
+                        <li mytype="wind">윈드 브레이커</li>
+                        <li mytype="wild">와일드 헌터</li>
+                        <li mytype="merse">메르세데스</li>
+                        <li mytype="kain">카인</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menuvar">
+            <div class="title">도적
+                <div class="choose">
+                    <ul>
+                        <li mytype="road">나이트로드</li>
+                        <li mytype="shadow">섀도어</li>
+                        <li mytype="dual">듀얼 블레이드</li>
+                        <li mytype="worker">나이트워커</li>
+                        <li mytype="jenon">제논</li>
+                        <li mytype="pantom">팬텀</li>
+                        <li mytype="kadena">카데나</li>
+                        <li mytype="hoyung">호영</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menuvar">
+            <div class="title">해적
+                <div class="choose">
+                    <ul>
+                        <li mytype="bye">바이퍼</li>
+                        <li mytype="kap">캡틴</li>
+                        <li mytype="canon">캐논 슈터</li>
+                        <li mytype="stri">스트라이커</li>
+                        <li mytype="MKN">메카닉</li>
+                        <li mytype="moon">은월</li>
+                        <li mytype="angel">엔젤릭버스터</li>
+                        <li mytype="ark">아크</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        const div = document.getElementById('flex');
+        const img = document.createElement('img');
+        const imgdiv = document.getElementById('illustration');
+        //ontitle에 마우스를 올렸을 때 flex div가 보여지는 이벤트
+        document.querySelector('#alltitle').addEventListener('mouseover', (event) =>{
+            if(div.style.display == 'none'){
+                div.style.display = 'flex';
+            }else{
+                div.style.display = 'none';
+            }
+        });
+        document.querySelector('#flex').addEventListener('mouseleave', (event) =>{
+            if(div.style.display == 'none'){
+                div.style.display = 'flex';
+            }else{
+                div.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('li').forEach((element) => {
+            element.addEventListener('click', (evt) => {
+                const type = evt.target.getAttribute('mytype'); // li의 mytype을 type상수에 저장
+                imgs[type]; // data.js에 있는 imgs 이미지 배열
+                imgdiv.style.backgroundImage = "url(" + imgs[type] + ")";
+            });
+        });
+
+    </script> 
+</body>
+</html>
