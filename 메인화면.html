@@ -10,11 +10,17 @@
         body{
             margin: 0;
             padding: 0;
-            background-image: url('예뻐보임.jpg');
+            background-image: url('배경.jpg');
             background-size: cover;
             height: 100vh;
             width: 100vw;
             opacity: 0.87;
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            text-align: center;
         }
         #flex{
             position: absolute;
@@ -59,14 +65,62 @@
             width: 900px;
             height: 850px;
             background-size: cover;
-            
+        }
+        #audioDiv{
+            width: 900px;
+            height: max-content;
+            left: 1000px;
+            top: 300px;
+            position: absolute;
+        }
+        .allbox{
+            width: 900px;
+            height: 120px;
+            background-color: deeppink;
+            clear: both;
+        }
+        .skilldiv{
+            width: 120px;
+            height: 120px;
+            float: left;
+            background-size: cover;
+        }
+        .pbox{
+            width: 620px;
+            height: 120px;
+            background-color: brown;
+            float: left;
+        }
+        .buttonbox{
+            width: 160px;
+            height: 120px;
+            background-color: lawngreen;
+            float: left;
         }
     </style>
 </head>
 <body>
-    <div id="illustration">
-
+    <div id="illustration"></div>
+    <div id = "audioDiv">
+        <div class="allbox">
+            <div class="skilldiv" id = "skilldiv"></div>
+            <div class="pbox" id = "pbox"></div>
+            <div class="buttonbox" id = "buttonbox"></div>
+        </div>
+        <p></p>
+        <div class="allbox">
+            <div class="skilldiv" id = "skilldiv"></div>
+            <div class="pbox" id = "pbox"></div>
+            <div class="buttonbox" id = "buttonbox"></div>
+        </div>
+        <p></p>
+        <div class="allbox">
+            <div class="skilldiv" id = "skilldiv"></div>
+            <div class="pbox" id = "pbox"></div>
+            <div class="buttonbox" id = "buttonbox"></div>
+        </div>
     </div>
+
     <div id = "alltitle">
         <div class="ontitle">전사</div>
         <div class="ontitle">마법사</div>
@@ -91,7 +145,8 @@
                         <li mytype="aran">아란</li>
                         <li mytype="kai">카이저</li>
                         <li mytype="adel">아델</li>
-                        <li mytype="zero">제로</li>
+                        <li mytype="alpa">알파</li>
+                        <li mytype="beta">베타</li>
                     </ul>
                 </div>
             </div>
@@ -163,11 +218,13 @@
             </div>
         </div>
     </div>
+    
     <script>
         
         const div = document.getElementById('flex');
         const img = document.createElement('img');
         const imgdiv = document.getElementById('illustration');
+        const skillDiv = document.getElementById('skilldiv');
         //ontitle에 마우스를 올렸을 때 flex div가 보여지는 이벤트
         document.querySelector('#alltitle').addEventListener('mouseover', (event) =>{
             if(div.style.display == 'none'){
@@ -187,11 +244,35 @@
         document.querySelectorAll('li').forEach((element) => {
             element.addEventListener('click', (evt) => {
                 const type = evt.target.getAttribute('mytype'); // li의 mytype을 type상수에 저장
-                imgs[type]; // data.js에 있는 imgs 이미지 배열
-                imgdiv.style.backgroundImage = "url(" + imgs[type] + ")";
-            });
-        });
+                const obj = jobs[type];
+                const aaaa = obj.aaaa;
+                const audio = obj.aaaa.audio;
+                
+                imgdiv.style.backgroundImage = "url(" + obj.image + ")";
+                
+                
+                for (let i = 0; i < aaaa.length; i++) {
+                    const p = document.createElement('p');
+                    const button = document.createElement('button');
+                    skillDiv.style.backgroundImage = "url(" + obj.skillImage + ")";
+                    button.class="btn";
+                    const buttontext = document.createTextNode('재생');
+                    p.innerText = aaaa.text;
+                    button.appendChild(buttontext);
+                    document.querySelector('.pbox').appendChild(p);
+                    document.querySelector('.buttonbox').appendChild(button);
+                }
 
+                window.onload = function(){
+                    document.querySelector('.btn').addEventListener("click", function(){
+                    var audio = new Audio("Wineglass On Wood Soft.mp3");
+                    console.log("dqaw")
+                    audio.loop = false;
+                    audio.volume = 0.5;
+                    audio.play();
+                    });
+                }
+                });});
     </script> 
 </body>
 </html>
